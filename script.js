@@ -59,10 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const winPrizeText = document.getElementById('win-prize');
 
     const prizes = [
-        "100% BONO EXTRA",
-        "50 GIROS GRATIS",
-        "$25,000 CASH",
-        "VIP PASS ORO"
+        { text: "BONO DEL 20%", chance: 40 },
+        { text: "BONO DEL 25%", chance: 40 },
+        { text: "BONO DEL 35%", chance: 18 },
+        { text: "BONO DEL 100%", chance: 2 }
     ];
 
     let canSpin = true;
@@ -77,8 +77,19 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Wait for the CSS transition to finish (4 seconds)
         setTimeout(() => {
-            // Pick a random prize to display
-            const wonPrize = prizes[Math.floor(Math.random() * prizes.length)];
+            // Pick a prize based on weighted probability
+            let randomNum = Math.random() * 100;
+            let wonPrize = prizes[0].text;
+            let cumulative = 0;
+            
+            for (let i = 0; i < prizes.length; i++) {
+                cumulative += prizes[i].chance;
+                if (randomNum <= cumulative) {
+                    wonPrize = prizes[i].text;
+                    break;
+                }
+            }
+            
             winPrizeText.textContent = wonPrize;
 
             // Switch steps

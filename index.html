@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡GANA EN GRANDE VIP!</title>
+    <meta name="description" content="Accede a tu bono exclusivo y únete a los ganadores VIP de hoy.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for WhatsApp Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <!-- Entry Overlay (Form + Roulette) -->
+    <div id="entry-overlay" class="entry-overlay active">
+        <!-- Form Step -->
+        <div id="form-step" class="modal-box active">
+            <h2>¡DESBLOQUEA TU BONO VIP!</h2>
+            <p>Ingresa tus datos para girar la ruleta y ganar premios exclusivos en tu primer depósito.</p>
+            <form id="entry-form">
+                <input type="text" id="user-name" placeholder="Tu Nombre" required>
+                <input type="tel" id="user-phone" placeholder="Tu Teléfono (WhatsApp)" required>
+                <button type="submit" class="submit-btn">¡IR A LA RULETA!</button>
+            </form>
+        </div>
+
+        <!-- Roulette Step -->
+        <div id="roulette-step" class="modal-box">
+            <h2>¡GIRA LA RULETA!</h2>
+            <p>Tienes 1 giro garantizado con premio.</p>
+            <div class="roulette-container">
+                <div class="pointer">▼</div>
+                <img src="wheel.png" id="wheel" class="wheel" alt="Ruleta">
+            </div>
+            <button id="spin-btn" class="submit-btn pulse">¡GIRAR AHORA!</button>
+        </div>
+
+        <!-- Win Step -->
+        <div id="win-step" class="modal-box">
+            <h2 class="win-title">¡FELICIDADES <span id="win-name" class="highlight-name"></span>!</h2>
+            <p>Acabas de ganar:</p>
+            <h3 class="prize-text" id="win-prize">$10,000 CASH</h3>
+            <button id="claim-btn" class="submit-btn shine">¡RECLAMAR MI PREMIO!</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="main-content">
+        <header>
+            <div class="logo">GANAMOS<span class="vip">VIP</span></div>
+        </header>
+
+        <main>
+            <h1 class="main-title">¡BONO DE BIENVENIDA <span class="highlight">EXCLUSIVO!</span></h1>
+            <p class="subtitle">Solo por tiempo limitado, reclama tu premio de la ruleta y empieza a ganar en los mejores slots online.</p>
+
+            <div class="timer-container">
+                <p class="timer-text">TU OFERTA EXPIRA EN:</p>
+                <div class="timer" id="countdown">01:30</div>
+            </div>
+
+            <div class="cta-wrapper">
+                <div class="pulse-ring"></div>
+                <!-- Reemplazar "1234567890" por el número de WhatsApp deseado -->
+                <a href="https://wa.me/1234567890" target="_blank" class="cta-btn" id="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>¡RECLAMAR MI BONO AHORA!</span>
+                </a>
+            </div>
+            
+            <p class="scarcity-text">¡Solo quedan <span class="pulse-text">3 cupos</span> disponibles hoy!</p>
+        </main>
+    </div>
+
+    <!-- Live Winners Popup -->
+    <div class="live-winner-popup" id="winner-popup">
+        <div class="winner-icon"><i class="fas fa-trophy"></i></div>
+        <div class="winner-info">
+            <p class="winner-name" id="w-name">Juan P.</p>
+            <p class="winner-prize">acaba de ganar <span id="w-amount">$50,000</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
